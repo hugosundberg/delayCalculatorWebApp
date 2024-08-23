@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note Value Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            text-align: center;
+        }
+
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        table {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Note Value Milliseconds Calculator</h1>
+
+    <p>Enter the BPM (Beats Per Minute):</p>
+    <input type="number" id="bpm" placeholder="Enter BPM">
+    <button onclick="calculateNoteValues()">Calculate</button>
+
+    <table id="results" style="display:none;">
+        <thead>
+            <tr>
+                <th>Note Value</th>
+                <th>Milliseconds</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Whole Note</td>
+                <td id="wholeNote"></td>
+            </tr>
+            <tr>
+                <td>Half Note</td>
+                <td id="halfNote"></td>
+            </tr>
+            <tr>
+                <td>Quarter Note</td>
+                <td id="quarterNote"></td>
+            </tr>
+            <tr>
+                <td>Eighth Note</td>
+                <td id="eighthNote"></td>
+            </tr>
+            <tr>
+                <td>Sixteenth Note</td>
+                <td id="sixteenthNote"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function calculateNoteValues() {
+            const bpm = document.getElementById("bpm").value;
+            if (bpm <= 0 || isNaN(bpm)) {
+                alert("Please enter a valid BPM.");
+                return;
+            }
+
+            const quarterNote = (60000 / bpm).toFixed(2); // milliseconds for a quarter note
+            const halfNote = (quarterNote * 2).toFixed(2);
+            const wholeNote = (quarterNote * 4).toFixed(2);
+            const eighthNote = (quarterNote / 2).toFixed(2);
+            const sixteenthNote = (quarterNote / 4).toFixed(2);
+
+            document.getElementById("wholeNote").innerText = wholeNote;
+            document.getElementById("halfNote").innerText = halfNote;
+            document.getElementById("quarterNote").innerText = quarterNote;
+            document.getElementById("eighthNote").innerText = eighthNote;
+            document.getElementById("sixteenthNote").innerText = sixteenthNote;
+
+            document.getElementById("results").style.display = "table";
+        }
+    </script>
+
+</body>
+</html>
