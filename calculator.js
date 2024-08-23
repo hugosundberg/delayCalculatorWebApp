@@ -1,6 +1,24 @@
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('bpm').focus(); // Automatically focus the input field on page load
+    
+    // Get all radio buttons with the name 'noteType'
+
+    const noteTypeRadioButtons = document.querySelectorAll('input[name="noteType"]');
+
+    noteTypeRadioButtons.forEach(radio => {
+        radio.addEventListener('change', function(event) {
+            // When a different radio button is selected
+            const selectedValue = event.target.value;
+            
+
+        });
+
+    });
+
+
 });
+
+
 
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
