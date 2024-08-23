@@ -33,6 +33,10 @@
             padding: 15px;
             text-align: center;
         }
+
+        .radio-buttons {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -42,6 +46,21 @@
     <p>Enter the BPM (Beats Per Minute):</p>
     <input type="number" id="bpm" placeholder="Enter BPM">
     <button onclick="calculateNoteValues()">Calculate</button>
+
+    <div class="radio-buttons">
+        <label>
+            <input type="radio" name="noteType" value="straight" checked> Straight
+        </label>
+        
+        <label>
+            <input type="radio" name="noteType" value="dotted"> Dotted
+        </label>
+
+        <label>
+            <input type="radio" name="noteType" value="triplet"> Triplet
+        </label>
+
+    </div>
 
     <table id="results" style="display:none;">
         <thead>

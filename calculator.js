@@ -6,9 +6,7 @@ document.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
         calculateNoteValues(); 
     }
-
 }); 
-
 
 function calculateNoteValues() {
     const bpm = document.getElementById("bpm").value;
