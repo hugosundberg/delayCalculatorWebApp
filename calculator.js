@@ -63,16 +63,19 @@ function calculateNoteValues(selectedValue) {
          document.getElementById("quarterNoteMs").innerText = quarterNote * 1.5;
          document.getElementById("eighthNoteMs").innerText = eighthNote * 1.5;
          document.getElementById("sixteenthNoteMs").innerText = sixteenthNote * 1.5;
- 
+         document.getElementById("thirtySecondNoteMs").innerText = thirtySecondNote * 1.5;
+
          // Displays dotted second values
          document.getElementById("wholeNoteSec").innerText = (wholeNote / 1000) * 1.5; 
          document.getElementById("halfNoteSec").innerText = (halfNote / 1000) * 1.5; 
          document.getElementById("quarterNoteSec").innerText = (quarterNote / 1000) * 1.5; 
          document.getElementById("eighthNoteSec").innerText = (eighthNote / 1000) * 1.5; 
          document.getElementById("sixteenthNoteSec").innerText = (sixteenthNote / 1000) *1.5; 
+         document.getElementById("thirtySecondNoteMs").innerText = (thirtySecondNote / 1000) * 1.5;
+
     } else {
         // Displays triplet millisecond values
-
+        document.getElementById("eightNoteMs").innerText = eighthNote * 0,6;
     }
 
     
