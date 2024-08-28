@@ -97,8 +97,6 @@ function calculateNoteValues(selectedValue) {
         document.getElementById("sixteenthNoteSec").innerText = round((sixteenthNote / 1000) * 0.6);
         document.getElementById("thirtySecondNoteSec").innerText = round((thirtySecondNote / 1000) * 0.6);
     }
-
     
-
     document.getElementById("results").style.display = "table";
 }
