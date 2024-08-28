@@ -36,8 +36,6 @@ function calculateNoteValues(selectedValue) {
         return;
     }
 
-    console.log(selectedValue);
-
     // Calculates millisecond values
     const quarterNote = (60000 / bpm).toFixed(0); // milliseconds for a quarter note
     const halfNote = (quarterNote * 2).toFixed(0);
@@ -82,20 +80,22 @@ function calculateNoteValues(selectedValue) {
          document.getElementById("sixteenthNoteSec").innerText = round((sixteenthNote / 1000) * 1.5); 
          document.getElementById("thirtySecondNoteSec").innerText = round((thirtySecondNote / 1000) * 1.5);
 
-         console.log(round(((wholeNote / 1000) * 1.5)));
-         console.log(round((halfNote / 1000) * 1.5));
-         console.log(round((eighthNote / 1000) * 1.5)); 
-         console.log(round((sixteenthNote / 1000) * 1.5));
-         console.log(round((thirtySecondNote / 1000) * 1.5));
-
     } else {
         // Displays triplet millisecond values
         document.getElementById("wholeNoteMs").innerText = round((wholeNote * 0.6));
         document.getElementById("halfNoteMs").innerText = round((halfNote * 0.6));
         document.getElementById("quarterNoteMs").innerText = round((quarterNote * 0.6));
         document.getElementById("eighthNoteMs").innerText = round((eighthNote * 0.6));
-        document.getElementById("sixteenthNoteMs").innerText = round((eighthNote * 0.6));
-        document.getElementById("thirtySecondNoteMs").innerText = round((eighthNote * 0.6));
+        document.getElementById("sixteenthNoteMs").innerText = round((sixteenthNote * 0.6));
+        document.getElementById("thirtySecondNoteMs").innerText = round((thirtySecondNote * 0.6));
+
+        // Display triplet second values
+        document.getElementById("wholeNoteSec").innerText = round((wholeNote / 1000) * 0.6);
+        document.getElementById("halfNoteSec").innerText = round((halfNote / 1000) * 0.6);
+        document.getElementById("quarterNoteSec").innerText = round((quarterNote / 1000) * 0.6);
+        document.getElementById("eighthNoteSec").innerText = round((eighthNote / 1000) * 0.6);
+        document.getElementById("sixteenthNoteSec").innerText = round((sixteenthNote / 1000) * 0.6);
+        document.getElementById("thirtySecondNoteSec").innerText = round((thirtySecondNote / 1000) * 0.6);
     }
 
     
