@@ -20,6 +20,15 @@ noteTypeRadioButtons.forEach(radio => {
     });
 });
 
+function round(number) {
+    // Check if the input is a whole number
+    if (number === Math.floor(number)) {
+        return number;
+    } else {
+        return Number(number.toFixed(2));
+    }
+}
+
 function calculateNoteValues(selectedValue) {
     const bpm = document.getElementById("bpm").value;
     
@@ -48,30 +57,36 @@ function calculateNoteValues(selectedValue) {
         document.getElementById("thirtySecondNoteMs").innerText = thirtySecondNote;
 
         // Displays straight second values
-        document.getElementById("wholeNoteSec").innerText = wholeNote / 1000; 
-        document.getElementById("halfNoteSec").innerText = halfNote / 1000; 
-        document.getElementById("quarterNoteSec").innerText = quarterNote / 1000; 
-        document.getElementById("eighthNoteSec").innerText = eighthNote / 1000; 
-        document.getElementById("sixteenthNoteSec").innerText = sixteenthNote / 1000; 
-        document.getElementById("thirtySecondNoteSec").innerText = thirtySecondNote / 1000; 
+        document.getElementById("wholeNoteSec").innerText = round((wholeNote / 1000)); 
+        document.getElementById("halfNoteSec").innerText = round((halfNote / 1000)); 
+        document.getElementById("quarterNoteSec").innerText = round((quarterNote / 1000)); 
+        document.getElementById("eighthNoteSec").innerText = round((eighthNote / 1000)); 
+        document.getElementById("sixteenthNoteSec").innerText = round((sixteenthNote / 1000)); 
+        document.getElementById("thirtySecondNoteSec").innerText = round((thirtySecondNote / 1000)); 
 
         
     } else if (selectedValue === "dotted") {
          // Displays dotted millisecond values
-         document.getElementById("wholeNoteMs").innerText = (wholeNote * 1.5);
-         document.getElementById("halfNoteMs").innerText = halfNote * 1.5;
-         document.getElementById("quarterNoteMs").innerText = quarterNote * 1.5;
-         document.getElementById("eighthNoteMs").innerText = eighthNote * 1.5;
-         document.getElementById("sixteenthNoteMs").innerText = sixteenthNote * 1.5;
-         document.getElementById("thirtySecondNoteMs").innerText = thirtySecondNote * 1.5;
+         document.getElementById("wholeNoteMs").innerText = round((wholeNote * 1.5));
+         document.getElementById("halfNoteMs").innerText = round((halfNote * 1.5));
+         document.getElementById("quarterNoteMs").innerText = round((quarterNote * 1.5));
+         document.getElementById("eighthNoteMs").innerText = round((eighthNote * 1.5));
+         document.getElementById("sixteenthNoteMs").innerText = round((sixteenthNote * 1.5));
+         document.getElementById("thirtySecondNoteMs").innerText = round((thirtySecondNote * 1.5));
 
          // Displays dotted second values
-         document.getElementById("wholeNoteSec").innerText = (wholeNote / 1000) * 1.5; 
-         document.getElementById("halfNoteSec").innerText = (halfNote / 1000) * 1.5; 
-         document.getElementById("quarterNoteSec").innerText = (quarterNote / 1000) * 1.5; 
-         document.getElementById("eighthNoteSec").innerText = (eighthNote / 1000) * 1.5; 
-         document.getElementById("sixteenthNoteSec").innerText = (sixteenthNote / 1000) *1.5; 
-         document.getElementById("thirtySecondNoteMs").innerText = (thirtySecondNote / 1000) * 1.5;
+         document.getElementById("wholeNoteSec").innerText = round((wholeNote / 1000) * 1.5); 
+         document.getElementById("halfNoteSec").innerText = round((halfNote / 1000) * 1.5); 
+         document.getElementById("quarterNoteSec").innerText = round((quarterNote / 1000) * 1.5); 
+         document.getElementById("eighthNoteSec").innerText = round((eighthNote / 1000) * 1.5); 
+         document.getElementById("sixteenthNoteSec").innerText = round((sixteenthNote / 1000) * 1.5); 
+         document.getElementById("thirtySecondNoteSec").innerText = round((thirtySecondNote / 1000) * 1.5);
+
+         console.log(round(((wholeNote / 1000) * 1.5)));
+         console.log(round((halfNote / 1000) * 1.5));
+         console.log(round((eighthNote / 1000) * 1.5)); 
+         console.log(round((sixteenthNote / 1000) * 1.5));
+         console.log(round((thirtySecondNote / 1000) * 1.5));
 
     } else {
         // Displays triplet millisecond values
