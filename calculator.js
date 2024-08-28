@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
         const selectedValue = document.querySelector('input[name="noteType"]:checked').value;
-        calculateNoteValues(selectedValue); 
+        calculateNoteValues(); 
     }
 }); 
 
@@ -15,8 +15,10 @@ const noteTypeRadioButtons = document.querySelectorAll('input[name="noteType"]')
 noteTypeRadioButtons.forEach(radio => {
     radio.addEventListener('change', function(event) {
         // When a different radio button is selected
-        const selectedValue = event.target.value;
-        calculateNoteValues(selectedValue);
+        selectedValue = event.target.value;
+        
+        calculateNoteValues();
+        
     });
 });
 
@@ -29,9 +31,11 @@ function round(number) {
     }
 }
 
-function calculateNoteValues(selectedValue) {
+function calculateNoteValues() {
     const bpm = document.getElementById("bpm").value;
-    
+
+    selectedValue = document.querySelector('input[name="noteType"]:checked').value;
+
     if (bpm <= 0 || isNaN(bpm)) {
         return;
     }
@@ -97,6 +101,6 @@ function calculateNoteValues(selectedValue) {
         document.getElementById("sixteenthNoteSec").innerText = round((sixteenthNote / 1000) * 0.6);
         document.getElementById("thirtySecondNoteSec").innerText = round((thirtySecondNote / 1000) * 0.6);
     }
-    
+
     document.getElementById("results").style.display = "table";
 }

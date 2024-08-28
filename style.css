@@ -4,6 +4,7 @@ body {
     font-family: 'Oswald', sans-serif;
     margin: 100px;
     text-align: center;
+    background-color: rgb(241, 217, 226);
 }
 
 h1 {
@@ -11,6 +12,7 @@ h1 {
 }
 
 p {
+    font-family: Arial, sans-serif;
     font-size: 35px;
 }
 
@@ -36,11 +38,13 @@ label {
 
 input[type="radio"] {
     transform: scale(1.5); 
-    margin-bottom: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 
 table {
+    background-color: white;
     margin-top: 20px;
     width: 100%;
     max-width: 500px;
