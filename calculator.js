@@ -90,7 +90,12 @@ function calculateNoteValues(selectedValue) {
 
     } else {
         // Displays triplet millisecond values
-        document.getElementById("eightNoteMs").innerText = eighthNote * 0,6;
+        document.getElementById("wholeNoteMs").innerText = round((wholeNote * 0.6));
+        document.getElementById("halfNoteMs").innerText = round((halfNote * 0.6));
+        document.getElementById("quarterNoteMs").innerText = round((quarterNote * 0.6));
+        document.getElementById("eighthNoteMs").innerText = round((eighthNote * 0.6));
+        document.getElementById("sixteenthNoteMs").innerText = round((eighthNote * 0.6));
+        document.getElementById("thirtySecondNoteMs").innerText = round((eighthNote * 0.6));
     }
 
     
