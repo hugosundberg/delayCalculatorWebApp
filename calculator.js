@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
         const selectedValue = document.querySelector('input[name="noteType"]:checked').value;
-        calculateNoteValues(selectedValue); 
+        calculateNoteValues(); 
     }
 }); 
 
@@ -15,8 +15,10 @@ const noteTypeRadioButtons = document.querySelectorAll('input[name="noteType"]')
 noteTypeRadioButtons.forEach(radio => {
     radio.addEventListener('change', function(event) {
         // When a different radio button is selected
-        const selectedValue = event.target.value;
-        calculateNoteValues(selectedValue);
+        selectedValue = event.target.value;
+        
+        calculateNoteValues();
+        
     });
 });
 
@@ -29,14 +31,14 @@ function round(number) {
     }
 }
 
-function calculateNoteValues(selectedValue) {
+function calculateNoteValues() {
     const bpm = document.getElementById("bpm").value;
-    
+
+    selectedValue = document.querySelector('input[name="noteType"]:checked').value;
+
     if (bpm <= 0 || isNaN(bpm)) {
         return;
     }
-
-    console.log(selectedValue);
 
     // Calculates millisecond values
     const quarterNote = (60000 / bpm).toFixed(0); // milliseconds for a quarter note
@@ -82,18 +84,23 @@ function calculateNoteValues(selectedValue) {
          document.getElementById("sixteenthNoteSec").innerText = round((sixteenthNote / 1000) * 1.5); 
          document.getElementById("thirtySecondNoteSec").innerText = round((thirtySecondNote / 1000) * 1.5);
 
-         console.log(round(((wholeNote / 1000) * 1.5)));
-         console.log(round((halfNote / 1000) * 1.5));
-         console.log(round((eighthNote / 1000) * 1.5)); 
-         console.log(round((sixteenthNote / 1000) * 1.5));
-         console.log(round((thirtySecondNote / 1000) * 1.5));
-
     } else {
         // Displays triplet millisecond values
-        document.getElementById("eightNoteMs").innerText = eighthNote * 0,6;
-    }
+        document.getElementById("wholeNoteMs").innerText = round((wholeNote * 0.6));
+        document.getElementById("halfNoteMs").innerText = round((halfNote * 0.6));
+        document.getElementById("quarterNoteMs").innerText = round((quarterNote * 0.6));
+        document.getElementById("eighthNoteMs").innerText = round((eighthNote * 0.6));
+        document.getElementById("sixteenthNoteMs").innerText = round((sixteenthNote * 0.6));
+        document.getElementById("thirtySecondNoteMs").innerText = round((thirtySecondNote * 0.6));
 
-    
+        // Display triplet second values
+        document.getElementById("wholeNoteSec").innerText = round((wholeNote / 1000) * 0.6);
+        document.getElementById("halfNoteSec").innerText = round((halfNote / 1000) * 0.6);
+        document.getElementById("quarterNoteSec").innerText = round((quarterNote / 1000) * 0.6);
+        document.getElementById("eighthNoteSec").innerText = round((eighthNote / 1000) * 0.6);
+        document.getElementById("sixteenthNoteSec").innerText = round((sixteenthNote / 1000) * 0.6);
+        document.getElementById("thirtySecondNoteSec").innerText = round((thirtySecondNote / 1000) * 0.6);
+    }
 
     document.getElementById("results").style.display = "table";
 }
